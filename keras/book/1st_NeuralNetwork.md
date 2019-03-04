@@ -23,7 +23,7 @@ zero: 全ての重みを0で初期化
 
 シグモイド関数:  
 ```math
-\sigma(x) = \frac{1}{1+exp(-x)}
+\sigma (x) = \frac {1} {1+exp(-x)}
 ```  
 
 3. 活性化関数  
