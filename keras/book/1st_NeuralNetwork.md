@@ -41,8 +41,7 @@ f(x)=max(0,x)
 [Keras 活性化関数](https://keras.io/ja/activations/)
 
 ### 手書き数字認識  
-
-#### MNIST:  
+MNIST:  
 >手書き数字のデータセット  
 >6万件の学習データと1万件の評価データ  
 >学習データには人手で正解が付与  
