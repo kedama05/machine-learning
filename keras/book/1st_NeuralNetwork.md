@@ -4,7 +4,7 @@
   kerasの単純なモデルはSequentialモデル  
   Sequentialモデル: ニューラルネットワークの層を積み上げる。  
   ex)  
-    ```
+    ```  
     from keras.model import Sequential  
     model = Sequential()  
     model.add(Dense(12, input_dim=8, kernel_initializer='random_uniform'))  
@@ -22,12 +22,12 @@
 
 3. 活性化関数  
   シグモイド関数:  
-    ```math
-    \sigma(x) = \frac {1} {1+exp(-x)}
+    ```math  
+    \sigma(x) = \frac {1} {1+exp(-x)}  
     ```  
   ReLU関数:  
-    ```math
-    f(x)=max(0,x)
+    ```math  
+    f(x)=max(0,x)  
     ```  
 
 4. 勾配降下法  
