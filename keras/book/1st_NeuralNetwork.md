@@ -149,8 +149,7 @@ keras\_MNIST\_V4.py
 
 
 #### original 
-----  
-1. sgd  
+<u>sgd</u>  
 sgd.py  
 >dense layer: 3  
 >activation: [relu, relu, softmax]  
@@ -166,7 +165,7 @@ drop\_sgd.py
 >>Test score: 0.19941077888831496  
 >>Test accuracy: 0.9401  
 
-2. rmsprop  
+<u>rmsprop</u>  
 rmsprop.py  
 >optimizer: RMSprop  
 >DROPOUT: 0.3  
@@ -179,7 +178,7 @@ drop\_rmsprop.py
 >>Test score: 0.09949910521613092  
 >>Test accuracy: 0.9785  
 
-3. adam  
+<u>adam</u>  
 adam.py  
 >optimizer: Adam  
 >DROPOUT: 0.3  
@@ -192,7 +191,7 @@ drop\_adam.py
 >>Test score: 0.07498836264909478  
 >>Test accuracy: 0.9794  
 
-4. adamax  
+<u>adamax</u>  
 adamax.py  
 >optimizer: Adamax  
 >DROPOUT: 0.3  
@@ -205,7 +204,7 @@ drop\_adamax.py
 >>Test score: 0.07470145506088738  
 >>Test accuracy: 0.977  
 
-5. Nadam  
+<u>Nadam</u>  
 nadam.py  
 >optimizer: Nadam  
 >DROPOUT: 0.3  
