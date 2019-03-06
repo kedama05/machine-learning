@@ -103,14 +103,7 @@ callback
 >学習データの一部を検証データとして用いる  
 
 
-
-## 勾配降下法  
-
-
-
-## 確率的勾配降下法  
-
-
+----  
 ### script  
 #### sample
 keras\_MINST\_V1.py  
@@ -118,7 +111,7 @@ keras\_MINST\_V1.py
 >activation: [softmax]  
 >optimizer: SGD  
 >NB\_EPOCH: 200  
->>Test score: 0.27738585779070857  
+>>Test loss: 0.27738585779070857  
 >>Test accuracy: 0.9227  
 
 keras\_MNIST\_V2.py  
@@ -126,7 +119,7 @@ keras\_MNIST\_V2.py
 >activation: [relu, relu, softmax]  
 >optimizer: SGD  
 >NB\_EPOCH: 20  
->>Test score: 0.18603960166722536  
+>>Test loss: 0.18603960166722536  
 >>Test accuracy: 0.9462  
 
 keras\_MNIST\_V3.py  
@@ -135,7 +128,7 @@ keras\_MNIST\_V3.py
 >optimizer: SGD  
 >NB\_EPOCH: 20  
 >DROPOUT: 0.3  
->>Test score: 0.19942258299961685  
+>>Test loss: 0.19942258299961685  
 >>Test accuracy: 0.94  
 
 keras\_MNIST\_V4.py  
@@ -144,17 +137,17 @@ keras\_MNIST\_V4.py
 >optimizer: RMSprop  
 >NB\_EPOCH: 20  
 >DROPOUT: 0.3  
->>Test score: 0.10002544444922278  
+>>Test loss: 0.10002544444922278  
 >>Test accuracy: 0.9785  
 
 
-#### original 
-<u>sgd</u>  
+#### original
+<u>SGD</u>  
 sgd.py  
 >dense layer: 3  
 >activation: [relu, relu, softmax]  
 >optimizer: SGD  
->>Test score: 0.1860125882193446  
+>>Test loss: 0.1860125882193446  
 >>Test accuracy: 0.9463  
 
 drop\_sgd.py  
@@ -162,59 +155,86 @@ drop\_sgd.py
 >activation: [relu, relu, softmax]  
 >optimizer: SGD  
 >DROPOUT: 0.3  
->>Test score: 0.19941077888831496  
+>>Test loss: 0.19941077888831496  
 >>Test accuracy: 0.9401  
 
-<u>rmsprop</u>  
+<u>RMSprop</u>  
 rmsprop.py  
 >optimizer: RMSprop  
->DROPOUT: 0.3  
->>Test score: 0.13478955727134304  
+>>Test loss: 0.13478955727134304  
 >>Test accuracy: 0.9763  
 
 drop\_rmsprop.py  
 >optimizer: RMSprop  
 >DROPOUT: 0.3  
->>Test score: 0.09949910521613092  
+>>Test loss: 0.09949910521613092  
 >>Test accuracy: 0.9785  
 
-<u>adam</u>  
+<u>Adam</u>  
 adam.py  
 >optimizer: Adam  
->DROPOUT: 0.3  
->>Test score: 0.11095440730602135  
+>>Test loss: 0.11095440730602135  
 >>Test accuracy: 0.9776  
 
 drop\_adam.py  
 >optimizer: Adam  
 >DROPOUT: 0.3  
->>Test score: 0.07498836264909478  
+>>Test loss: 0.07498836264909478  
 >>Test accuracy: 0.9794  
 
-<u>adamax</u>  
+<u>Adamax</u>  
 adamax.py  
 >optimizer: Adamax  
->DROPOUT: 0.3  
->>Test score: 0.07737895044728939  
+>>Test loss: 0.07737895044728939  
 >>Test accuracy: 0.98  
 
 drop\_adamax.py  
 >optimizer: Adamax  
 >DROPOUT: 0.3  
->>Test score: 0.07470145506088738  
+>>Test loss: 0.07470145506088738  
 >>Test accuracy: 0.977  
 
 <u>Nadam</u>  
 nadam.py  
 >optimizer: Nadam  
->DROPOUT: 0.3  
->>Test score: 0.13653561498492076  
+>>Test loss: 0.13653561498492076  
 >>Test accuracy: 0.976  
 
 drop\_nadam.py  
 >optimizer: Nadam  
 >DROPOUT: 0.3  
->>Test score: 0.07784218108507267  
+>>Test loss: 0.07784218108507267  
 >>Test accuracy: 0.978  
+
+
+#### epochs
+<u>SGD</u>  
+sgd.py  
+>eopch: 200
+>dense layer: 3  
+>activation: [relu, relu, softmax]  
+>optimizer: SGD  
+>>Test loss: 0.1860125882193446  
+>>Test accuracy: 0.9463  
+>>>(20epoch) loss: 0.1890 - acc: 0.9456 - val-loss: 0.1849 - val-acc: 0.9497
+
+drop\_sgd.py 
+>epoch: 200
+>dense layer: 3  
+>activation: [relu, relu, softmax]  
+>optimizer: SGD  
+>DROPOUT: 0.3  
+>>Test loss: 0.19941077888831496  
+>>Test accuracy: 0.9401  
+>>>(20epoch) loss: 0.2931 - acc: 0.9132 - val-loss: 0.1973 - val-acc: 0.9420
+----  
+
+Dropout  
+>層の中のノードのうちいくつかを無効にして学習を行う  
+>>一般に全結合層に適用される  
+>>畳み込み層に適用しても精度向上できる  
+>>オーバーフィッティング(過学習)の解消につながる  
+>>アンサンブル学習の近似になる
+
 
 
