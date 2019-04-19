@@ -129,6 +129,7 @@ TensorBoardでは，異なる層への活性化ヒストグラムと同様に，
 ## ImageDataGenerator  
 リアルタイムにデータ拡張しながら，テンソル画像データのバッチを生成します．  
 また，このジェネレータは，データを無限にループするので，無限にバッチを生成します．  
+
     from keras.preprocessing.image import ImageDataGenerator
         ImageDataGenerator(
             featurewise_center=False,
