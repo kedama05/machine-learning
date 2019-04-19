@@ -33,7 +33,8 @@ Historyオブジェクトにイベントを記録する
 Historyオブジェクトはモデルのfitメソッドの返り値として取得する  
 #### ModelCheckpoint  
     keras.callbacks.ModelCheckpoint(filepath, monitor='val_loss', verbose=0, save_best_only=False, save_weights_only=False, mode='auto', period=1)
-各エポック終了後にモデルを保存する
+各エポック終了後にモデルを保存する  
+
     filepath: 文字列，モデルファイルを保存するパス．
     monitor: 監視する値．
     verbose: 冗長モード, 0 または 1．
@@ -44,6 +45,7 @@ Historyオブジェクトはモデルのfitメソッドの返り値として取�
 #### EarlyStopping  
     keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto')
 監視する値の変化が停止した時に訓練を終了する  
+
     monitor: 監視する値．
     min_delta: 監視する値について改善として判定される最小変化値．つまり，min_deltaよりも絶対値の変化が小さければ改善していないとみなします．
     patience: ここで指定したエポック数の間（監視する値に）改善がないと，訓練が停止します．
@@ -52,14 +54,16 @@ I   mode: {auto, min, max}の内，一つが選択されます．minモードで
 #### RemoteMonitor  
     keras.callbacks.RemoteMonitor(root='http://localhost:9000', path='/publish/epoch/end/', field='data', headers=None)
 サーバーにイベントをストリームするときに使用される  
-requestsライブラリが必要.
+requestsライブラリが必要.  
+
     root: 文字列；対象サーバのルートURL．
     path: 文字列；イベントを送るrootへの相対パス．
     field: 文字列；データを保存するJSONのフィールド．
     headers: 辞書; オプションでカスタムできるHTTPヘッダー．
 #### LearningRateScheduler  
     keras.callbacks.LearningRateScheduler(schedule, verbose=0)
-学習率のスケジューラ．
+学習率のスケジューラ．  
+
     schedule: この関数はエポックのインデックス（整数, 0から始まるインデックス）を入力とし，新しい学習率（浮動小数点数）を返します．
     verbose: 整数．0:：何も表示しない．1：更新メッセージを表示．
 #### TensorBoard  
@@ -67,6 +71,7 @@ requestsライブラリが必要.
 Tensorboardによる基本的な可視化．  
 TensorBoardのログを出力  
 TensorBoardでは，異なる層への活性化ヒストグラムと同様に，訓練とテストの評価値を動的にグラフ化し，可視化できる  
+
     log_dir: TensorfBoardによって解析されたログファイルを保存するディレクトリのパス
     histogram_freq: モデルの層の活性化ヒストグラムを計算する（エポック中の）頻度．この値を0に設定するとヒストグラムが計算されません．ヒストグラムの可視化にはバリデーションデータを指定しておく必要があります．
     write_graph: TensorBoardのグラフを可視化するか．write_graphがTrueの場合，ログファイルが非常に大きくなることがあります．
@@ -81,18 +86,21 @@ TensorBoardでは，異なる層への活性化ヒストグラムと同様に，
 評価値の改善が止まった時に学習率を減らす.  
 モデルは訓練が停滞した時に学習率を2〜10で割ることで恩恵を受けることがある．  
 このコールバックは評価値を監視し， 
-'patience'で指定されたエポック数の間改善が見られなかった場合，学習率を減らす．  
+'patience'で指定されたエポック数の間改善が見られなかった場合，学習率を減らす． 
+
     monitor: 監視する値．
     factor: 学習率を減らす割合．new_lr = lr * factor
     patience: 何エポック改善が見られなかったら学習率の削減を行うか．
     verbose: 整数．0: 何も表示しない．1: 学習率削減時メッセージを表示．
-    mode: auto，min，maxのいずれか．  minの場合，監視する値の減少が停止した際に，学習率を更新します．  maxの場合，監視する値の増加が停止した時に，学習率を更新します．  autoの場合，監視する値の名前から自動で判断します．
+    mode: auto，min，maxのいずれか．  minの場合，監視する値の減少が停止した際に，学習率を更新します．  maxの場合，監視する値の増加が停止した時に，学習率を更新します．  autoの場合，監視する値の名前から自動で判断します．  
+
     epsilon: 改善があったと判断する閾値．有意な変化だけに注目するために用います．
     cooldown: 学習率を減らした後，通常の学習を再開するまで待機するエポック数．
     min_lr: 学習率の下限．
 #### CSVLogger  
     keras.callbacks.CSVLogger(filename, separator=',', append=False)
-各エポックの結果をcsvファイルに保存する
+各エポックの結果をcsvファイルに保存する  
+
     np.ndarrayのような1次元イテラブルを含む，文字列表現可能な値をサポートしている.
     filename: csvファイル名．例えば'run/log.csv'．
     separator: csvファイルで各要素を区切るために用いられる文字．
@@ -100,7 +108,8 @@ TensorBoardでは，異なる層への活性化ヒストグラムと同様に，
 #### LambdaCallback  
     keras.callbacks.LambdaCallback(on_epoch_begin=None, on_epoch_end=None, on_batch_begin=None, on_batch_end=None, on_train_begin=None, on_train_end=None)
 シンプルな自作コールバックを急いで作るためのコールバック．  
-適切なタイミングで呼び出される無名関数で構築されます． 以下のような位置引数が必要  
+適切なタイミングで呼び出される無名関数で構築されます．  
+以下のような位置引数が必要  
     on_epoch_beginとon_epoch_endは2つの位置引数が必要です: epoch，logs
     on_batch_beginとon_batch_endは2つの位置引数が必要です: batch，logs
     on_train_beginとon_train_endは1つの位置引数が必要です: logs
@@ -112,7 +121,9 @@ TensorBoardでは，異なる層への活性化ヒストグラムと同様に，
     on_train_begin: 訓練の開始時に呼ばれます．
     on_train_end: 訓練の終了時に呼ばれます．
 
-(keras-callback)[https://keras.io/ja/callbacks/]
+[keras-callback](https://keras.io/ja/callbacks/)
+
+
 
 # Class  
 ## ImageDataGenerator  
