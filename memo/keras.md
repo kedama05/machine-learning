@@ -50,8 +50,7 @@ Historyオブジェクトはモデルのfitメソッドの返り値として取�
     min_delta: 監視する値について改善として判定される最小変化値．つまり，min_deltaよりも絶対値の変化が小さければ改善していないとみなします．
     patience: ここで指定したエポック数の間（監視する値に）改善がないと，訓練が停止します．
     verbose: 冗長モード．
-I   mode: {auto, min, max}の内，一つが選択されます．minモードでは，監視する値の減少が停止した際に，訓練を終了します．また，maxモードでは，監視する値の増加が停止した際に，訓練を終了します．autoモードでは，この傾向は自動的に監視されている値から推定します．
-
+I   mode: {auto, min, max}の内，一つが選択される
 #### RemoteMonitor  
     keras.callbacks.RemoteMonitor(root='http://localhost:9000', path='/publish/epoch/end/', field='data', headers=None)
 サーバーにイベントをストリームするときに使用される  
